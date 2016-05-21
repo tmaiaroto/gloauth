@@ -1,0 +1,9 @@
+
+{
+  "name": "gloauth",
+  "description": "A simple serverless authentication system",
+  "memory": 128,
+  "timeout": 5,
+  "defaultEnvironment": "dev",
+  "environment": {}
+}

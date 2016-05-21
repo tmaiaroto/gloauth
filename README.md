@@ -7,6 +7,14 @@ Why another one? Well, there's a lot of good auth packages for Node.js (Passport
 Golang nor do I find many that leverage AWS Lambda (there is LambdAuth, again in Node.js). At least not at the time I needed
 this. If I did, I wouldn't be building this, trust me.
 
+### Setup
+
+GLOAuth is using Apex and Terraform to orchestrate a few things. You'll of course need an AWS account. Ensure it's configured
+and you have your `~/.aws/config` information set OR have environment variables for your credentials. You'll need to provide
+your `account_id` when you run Terraform.
+
+...TBD...
+
 ### Why Go?
 
 Well, LambdAuth wasn't exactly turn-key. The setup process wasn't working out for me and I quickly realized that not only
