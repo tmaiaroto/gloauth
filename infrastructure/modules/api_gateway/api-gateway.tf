@@ -1,6 +1,6 @@
 # Creates the API "Gloauth API"
 resource "aws_api_gateway_rest_api" "GloauthAPI" {
-  name = "Gloauth API"
+  name = "${var.api_gateway_api_name}"
   description = "A simple serverless authentication system"
 }
 
@@ -37,9 +37,9 @@ resource "aws_api_gateway_integration" "RegisterIntegration" {
   http_method = "${aws_api_gateway_method.RegisterMethod.http_method}"
   type = "AWS"
   integration_http_method = "POST" # Must be POST for invoking Lambda function
-  credentials = "${module.iam.gateway_invoke_lambda_role_id}"
+  credentials = "${var.api_gateway_invoke_lambda_role_arn}"
   # http://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
-  uri = "arn:aws:apigateway:${var.aws_region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${var.aws_region}:${var.aws_account_id}:function:${var.functions.register}/invocations"
+  uri = "arn:aws:apigateway:${var.api_gateway_aws_region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${var.api_gateway_aws_region}:${var.api_gateway_aws_account_id}:function:gloauth_register/invocations"
 }
 
 # Configures the integration (Lambda) response that maps to the method response via the status_code
@@ -55,5 +55,5 @@ resource "aws_api_gateway_deployment" "dev" {
  depends_on = ["aws_api_gateway_integration.RegisterIntegration"]
 
  rest_api_id = "${aws_api_gateway_rest_api.GloauthAPI.id}"
- stage_name = "dev"
+ stage_name = "${var.api_gateway_stage}"
 }

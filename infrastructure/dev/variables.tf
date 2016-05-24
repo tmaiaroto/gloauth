@@ -12,9 +12,10 @@ variable "user_table" {
 	default = "gloauth_users"
 }
 
-variable "functions" {
-	type = "map"
-	default = {
-		register = "gloauth_register"
-	}
+variable "api_name" {
+	default = "Gloauth"
+}
+
+variable "api_stage" {
+	default = "dev"
 }
