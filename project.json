@@ -5,5 +5,8 @@
   "memory": 128,
   "timeout": 5,
   "defaultEnvironment": "dev",
-  "environment": {}
+  "environment": {
+  	"AUTH_DB_REGION": "us-east-1",
+  	"AUTH_DB_TABLE": "gloauth_users"
+  }
 }

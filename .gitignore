@@ -2,3 +2,4 @@ account_id.ignore
 .terraform
 terraform.tfstat
 terraform.tfstat.backup
+event.json

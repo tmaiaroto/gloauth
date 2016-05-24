@@ -35,3 +35,23 @@ resource "aws_iam_role_policy" "cloudwatchlogs_full_access" {
 }
 EOF
 }
+
+# Allow access to DynamoDB from the Lambda
+resource "aws_iam_role_policy" "dynamodb_full_access" {
+  name = "dynamodb_full_access"
+  role = "${aws_iam_role.lambda_function.id}"
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "dynamodb:*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+}

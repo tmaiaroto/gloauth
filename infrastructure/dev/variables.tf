@@ -1,5 +1,4 @@
-variable "aws_account_id" {
-}
+variable "aws_account_id" {}
 
 variable "aws_region" {
 	default = "us-east-1"
@@ -7,6 +6,10 @@ variable "aws_region" {
 
 variable "stage" {
 	default = "dev"
+}
+
+variable "user_table" {
+	default = "gloauth_users"
 }
 
 variable "functions" {
