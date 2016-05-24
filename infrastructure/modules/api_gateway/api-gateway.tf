@@ -51,7 +51,7 @@ resource "aws_api_gateway_integration_response" "RegisterResponse" {
 }
 
 # Creates the API stage
-resource "aws_api_gateway_deployment" "dev" {
+resource "aws_api_gateway_deployment" "stage" {
  depends_on = ["aws_api_gateway_integration.RegisterIntegration"]
 
  rest_api_id = "${aws_api_gateway_rest_api.GloauthAPI.id}"
