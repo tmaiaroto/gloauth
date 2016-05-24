@@ -11,7 +11,16 @@ this. If I did, I wouldn't be building this, trust me.
 
 GLOAuth is using Apex and Terraform to orchestrate a few things. You'll of course need an AWS account. Ensure it's configured
 and you have your `~/.aws/config` information set OR have environment variables for your credentials. You'll need to provide
-your `account_id` when you run Terraform.
+your `account_id` when you run Terraform. Apex wraps Terraform but doesn't prompt you for variables. You can pass your account
+id in -var and set any other variable you need this way too. You could also alter the `variables.tf` in the `dev` and `prod`
+infrastructure directories as needed. It's a bit cleaner and safer to rely on your AWS config and to pass your account id
+when running the infra command.
+
+```
+apex deploy
+apex infra get
+apex infra apply -var 'aws_account_id=12345'
+```
 
 ...TBD...
 
